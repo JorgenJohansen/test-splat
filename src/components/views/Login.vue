@@ -1,16 +1,13 @@
 <template>
   <div id="app">
-     <h3>Add a new note</h3>
+     <h1>Sign in</h1>
      <form>
-         <label>Title: </label>
-         <input type="text" v-model="title" />
-         <label>Link: </label>
-         <input type="text" v-model="content" />
-         <button>Create note</button>
-         <button>Cancel</button>
+         <label>Email: </label>
+         <input type="email" v-model="email" />
+         <label>Password: </label>
+         <input type="password" v-model="password" />
          
      </form>
-     
   </div>
 </template>
 
@@ -20,17 +17,12 @@
 export default {
   data(){
       return{
-          title:"",
-          content:"",
+          email:"",
+          password:"",
       }
     },
   components: {
     
-  },
-  methods:{
-      createLink: function(){
-
-      }
   }
 }
 </script>

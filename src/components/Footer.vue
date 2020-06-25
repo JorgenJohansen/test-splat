@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    
+    <p>Made by Jørgen, humble fullstack dev.</p>
   </div>
 </template>
 
@@ -21,5 +21,6 @@ export default {
 </script>
 
 <style>
+
 
 </style>

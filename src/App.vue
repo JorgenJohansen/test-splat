@@ -1,18 +1,19 @@
 <template>
   <div id="app">
-    <app-splat></app-splat>
+    <app-home></app-home>
+    
   </div>
 </template>
 
 <script>
 
-import Splat from './components/Splat';
+import Home from './components/views/Home'
 export default {
   data(){
 
   },
   components: {
-    'app-splat':Splat
+    'app-home': Home,
   }
 }
 </script>

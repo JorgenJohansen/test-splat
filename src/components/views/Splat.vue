@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import Notes from './Notes';
-import Links from './Links';
+import Notes from '../Notes';
+import Links from '../Links';
 
 export default {
   data(){

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    
+    <h1>Your distractionfree organizer!</h1>
   </div>
 </template>
 
@@ -21,5 +21,8 @@ export default {
 </script>
 
 <style>
-
+h1{
+  background: blue;
+  color: white;
+}
 </style>
