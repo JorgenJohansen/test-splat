@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Your distractionfree organizer!</h1>
+    <h1>Your splat place</h1>
   </div>
 </template>
 

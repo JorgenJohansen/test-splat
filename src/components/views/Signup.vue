@@ -3,13 +3,14 @@
      <h1>Sign up</h1>
      <form>
          <label>Name: </label>
-         <input type="text" v-model="name" />
+         <input required type="text" v-model="name" />
          <label>Age: </label>
-         <input type="text" v-model="age" />
+         <input required type="text" v-model="age" />
          <label>Email: </label>
-         <input type="email" v-model="email" />
+         <input required type="email" v-model="email" />
          <label>Password: </label>
-         <input type="password" v-model="password" />
+         <input required type="password" v-model="password" />
+         <button>Register user</button>
          
      </form>
   </div>
@@ -29,6 +30,17 @@ export default {
     },
   components: {
     
+  },
+  methods:{
+    makeUser: function(){
+      return {
+        name: this.name,
+        age: this.age,
+        email: this.email,
+        password: this.password,
+      }
+    }
+
   }
 }
 </script>
@@ -43,11 +55,15 @@ form{
 }
 input{
     display:block;
-    margin: auto;
-    
-    
+    margin: auto;  
 }
 label{
     margin: 5px;
 }
+
+button{
+  display: block;
+  margin:  10px auto;
+}
+
 </style>

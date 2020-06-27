@@ -6,8 +6,8 @@
          <input type="text" v-model="title" />
          <label>Link: </label>
          <input type="text" v-model="content" />
-         <button>Create note</button>
-         <button>Cancel</button>
+         <button v-on:click="createNote">Create note</button>
+         <button v-on:click="closeNote">Cancel</button>
          
      </form>
      

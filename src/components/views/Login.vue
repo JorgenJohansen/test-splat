@@ -6,6 +6,7 @@
          <input type="email" v-model="email" />
          <label>Password: </label>
          <input type="password" v-model="password" />
+         <button>Login</button>
          
      </form>
   </div>
