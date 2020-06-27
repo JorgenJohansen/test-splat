@@ -3,7 +3,7 @@
      <h1>Your Dashboard</h1>
      <ul>
        <li v-for="splat in splats" :key="splat.title">
-         <h3>{{splat.title}}</h3>
+         <router-link to="/dashboard/splat">{{splat.title}}</router-link>
        </li>
      </ul>
 

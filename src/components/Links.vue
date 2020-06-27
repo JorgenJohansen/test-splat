@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <a href="">{{link.title}}</a>
+    <a v-bind:href="link.link">{{link.title}}</a>
   </div>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
   <div id="app">
    <h2>{{title}}</h2>
-   <button v-on:click="openNotesForm">Add new notes</button>
-   <button v-on:click="openLinksForm">Add new links</button>
+   <router-link to="/dashboard/splat/note">Add a new Note</router-link><br>
+   <router-link to="/dashboard/splat/link">Add a new Link</router-link>
    <h3>Notes: </h3>
    <ul>
        <li v-for="note in notes" :key="note.title">
@@ -33,8 +33,8 @@ export default {
                 link: "https://www.youtube.com/",
               },
               {
-                title: "Facebook",
-                link: "https://www.facebook.com/",
+                title: "Factsplat",
+                link: "https://factsplat.com/",
               },
               {
                 title: "Spotify",
