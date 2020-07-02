@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <app-header></app-header>
      <h1>Your Dashboard</h1>
      <ul>
        <li v-for="splat in splats" :key="splat.title">
@@ -12,7 +13,7 @@
 
 <script>
 
-
+import Header from '../Header';
 export default {
   data(){
       return{
@@ -40,7 +41,7 @@ export default {
       }
     },
   components: {
-    
+    'app-header': Header,
   },
   methods:{
     

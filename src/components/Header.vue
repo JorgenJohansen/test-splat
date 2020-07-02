@@ -1,6 +1,13 @@
 <template>
   <div id="app">
-    <h1>Your splat place</h1>
+    
+    <h1>Test Splat</h1>
+    <router-link v-show="renderHome" to="/">Home</router-link> 
+    <router-link v-show="renderLogin" to="/login">Login</router-link> 
+    <router-link v-show="renderSignup" to="/signup">Sign up</router-link> 
+    <router-link v-show="renderLogout" to="/">Logout</router-link> 
+    
+    <router-view></router-view>
   </div>
 </template>
 
@@ -8,6 +15,7 @@
 
 
 export default {
+  props:['status'],
 
   data(){
       return{

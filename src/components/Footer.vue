@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <p>Made by Jørgen, humble fullstack dev.</p>
+    <p>Made by Jørgen, humble (front)fullstack dev.</p>
   </div>
 </template>
 

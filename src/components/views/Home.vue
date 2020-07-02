@@ -1,5 +1,6 @@
 <template>
   <div id="home">
+    <Header v-bind="status" />
     <h1>Hi and welcome to this test project</h1>
     <h3>Info</h3>
     <p>To use this application you can go to <router-link to="/dashboard/splat">this link</router-link> to view notes and links.</p>
@@ -11,16 +12,23 @@
 
 <script>
 
-
+import Header from '../Header';
 export default {
 
   data(){
       return{
+        status:{
+          renderHome: false,
+          renderlogin: true,
+          renderSignup: true,
+          renderLogout: false,
+        }
+          
           
       }
     },
   components: {
-    
+    Header,
   }
 }
 </script>
