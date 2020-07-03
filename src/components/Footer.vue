@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <p>Made by Jørgen, humble (front)fullstack dev.</p>
+  <div>
+    <p class="footer">Made by Jørgen, humble (front)fullstack dev.</p>
   </div>
 </template>
 
@@ -21,6 +21,10 @@ export default {
 </script>
 
 <style>
-
+.footer{
+  background:lightgray;
+  margin: 0px;
+  padding: 5px;
+}
 
 </style>

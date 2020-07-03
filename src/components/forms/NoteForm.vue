@@ -5,9 +5,9 @@
          <label>Title: </label>
          <input type="text" v-model="title" />
          <label>Link: </label>
-         <input type="text" v-model="content" />
-         <button v-on:click="createNote">Create note</button>
-         <button v-on:click="closeNote">Cancel</button>
+         <textarea type="text" v-model="content" />
+         <button @click="goHome">Create note</button>
+         <button @click="goHome">Cancel</button>
          
      </form>
      
@@ -28,8 +28,14 @@ export default {
     
   },
   methods:{
-      createLink: function(){
-
+      createNote() {
+          return{
+              title: this.title,
+              content: this.content,
+          }
+      },
+      goHome() {
+          this.$router.push('/dashboard')
       }
   }
 }

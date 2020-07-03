@@ -18,15 +18,16 @@ const routes = [
   {path:'/signup', component: Signup},
   {path:'/login', component: Login},
   {path:'/dashboard', component: Dashboard},
-  {path:'/dashboard/splat', component: Splat},
-  {path:'/dashboard/splat/note', component: Note},
-  {path:'/dashboard/splat/link', component: Link},
+  {path:'/dashboard/:splatId', component: Splat},
+  {path:'/note', component: Note},
+  {path:'/link', component: Link},
 
   
 ];
 
 const router = new VueRouter({
   routes: routes,
+  //history gets rid of the hash
   mode: 'history',
 });
 

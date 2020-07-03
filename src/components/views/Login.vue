@@ -1,12 +1,18 @@
 <template>
-  <div id="app">
-     <h1>Sign in</h1>
+  <div>
+      <div class="navbar">
+        <h1>Sign in</h1>
+        <router-link to="/" tag="button">Home</router-link>
+      </div>
+     
+
      <form>
          <label>Email: </label>
          <input type="email" v-model="email" />
          <label>Password: </label>
          <input type="password" v-model="password" />
          <button>Login</button>
+         <router-link to="/" tag="button">Home</router-link>
          
      </form>
   </div>
@@ -44,5 +50,14 @@ input{
 }
 label{
     margin: 5px;
+}
+h1{
+  text-align: center;
+}
+
+.navbar{
+  display: flex;
+  background: grey;
+  justify-content: space-evenly;
 }
 </style>

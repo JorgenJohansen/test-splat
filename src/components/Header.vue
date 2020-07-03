@@ -1,11 +1,13 @@
 <template>
-  <div id="app">
+  <div>
+    <div id="header">
+      <h1>Test Splat</h1>
+    <router-link to="/" tag="button">Home</router-link> 
+    <router-link to="/login" tag="button">Login</router-link> 
+    <router-link to="/signup" tag="button" >Sign Up</router-link> 
+    <router-link to="/" tag="button" :isHidden="true">Logout</router-link> 
+    </div>
     
-    <h1>Test Splat</h1>
-    <router-link v-show="renderHome" to="/">Home</router-link> 
-    <router-link v-show="renderLogin" to="/login">Login</router-link> 
-    <router-link v-show="renderSignup" to="/signup">Sign up</router-link> 
-    <router-link v-show="renderLogout" to="/">Logout</router-link> 
     
     <router-view></router-view>
   </div>
@@ -15,7 +17,12 @@
 
 
 export default {
-  props:['status'],
+  props:[{
+    renderHome: status.renderHome,
+    renderLogin: status.renderLogin,
+    renderSignup: status.renderSignup,
+    renderLogout: status.renderLogout,
+  }],
 
   data(){
       return{
@@ -30,7 +37,14 @@ export default {
 
 <style>
 h1{
-  background: blue;
   color: white;
+  margin: 5px;
 }
+
+#header{
+  display:flex;
+  flex-direction: row;
+  background: grey;
+}
+
 </style>

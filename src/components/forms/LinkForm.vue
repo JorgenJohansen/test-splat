@@ -6,8 +6,8 @@
          <input type="text" v-model="title" />
          <label>Link: </label>
          <input type="text" v-model="link" />
-         <button>Create link</button>
-         <button>Cancel</button>
+         <button @click="goHome">Create link</button>
+         <button @click="goHome">Cancel</button>
          
      </form>
      
@@ -22,14 +22,38 @@ export default {
       return{
           title:"",
           link:"",
+          countryCodes:[],
       }
     },
   components: {
     
   },
   methods:{
-      createLink: function(){
+      createLink(link){
+          if(this.validateLink(link)){
+              return{
+                  title: this.title,
+                  link:this.link,
+              }
+          }else{
+              alert("Link is not valid!")
+          }
 
+      },
+      validateLink(link){
+          let linkList = link.split(".");
+          if(linkList[0] !== "www"){
+             this.countryCodes.forEach(element => {
+              if(element === linkList[2]){
+                  return true;
+              }
+            });
+          }
+          return false;
+          
+      },
+      goHome() {
+          this.$router.push('/dashboard')
       }
   }
 }
