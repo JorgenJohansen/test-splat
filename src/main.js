@@ -8,6 +8,7 @@ import Splat from './components/views/Splat';
 import Home from './components/views/Home';
 import NoteForm from './components/forms/NoteForm';
 import LinkForm from './components/forms/LinkForm';
+import Missing from './components/Missing';
 
 Vue.config.productionTip = false;
 
@@ -21,8 +22,7 @@ const routes = [
   {path:'/dashboard/splat', component: Splat},
   {path:'/note', component: NoteForm},
   {path:'/link', component: LinkForm},
-
-  
+  {path:'*', component: Missing}
 ];
 
 const router = new VueRouter({
