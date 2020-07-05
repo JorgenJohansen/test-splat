@@ -2,11 +2,11 @@
   <div id="app">
     <app-header></app-header>
      <h1>Dashboard</h1>
-     <ul class="wrapper">
-       <li v-for="splat in splats" :key="splat.title">
-         <router-link to="/dashboard/:splatId" tag="button">{{splat.title}}</router-link>
-       </li>
-     </ul>
+     <div class="wrapper">
+       <div class="link" v-for="splat in splats" :key="splat.title">
+         <router-link to="/dashboard/splat">{{splat.title}}</router-link>
+       </div>
+     </div>
 
   </div>
 </template>
@@ -53,9 +53,12 @@ h1{
 }
 
 .wrapper{
-  display:inline-block;
   display: grid;
-  
-
+  grid-template-columns:repeat(6,1fr);
+}
+.link{
+  color: red;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 </style>

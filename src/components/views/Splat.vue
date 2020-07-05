@@ -1,33 +1,39 @@
 <template>
   <div id="app">
-   <h2>{{splat.title}}</h2>
-   <router-link to="/dashboard/splat/note">Add a new Note</router-link><br>
-   <router-link to="/dashboard/splat/link">Add a new Link</router-link>
-   <h3>Notes: </h3>
-   <ul class="wrapper">
-       <li v-for="note in notes" :key="note.title">
-           <app-notes v-bind:note="note"></app-notes>
-       </li>
-   </ul>
+    <Header />
+   <h2>Splat</h2>
+   <div class="add">
+       <router-link to="/note" tag="button">Add a new Note</router-link>
+   <router-link to="/link" tag="button">Add a new Link</router-link>
+   </div>
+   
+   <h2>Notes: </h2>
+   <div class="wrapper-note">
+       <p v-for="note in notes" :key="note.title">
+           <Notes v-bind:note="note" />
+       </p>
+   </div>
 
-   <h3>Links: </h3>
-   <ul class="wrapper">
-       <li v-for="link in links" :key="link.title">
-           <app-links v-bind:link="link"></app-links>
-       </li>
-   </ul>
+   <h2>Links: </h2>
+   <div class="wrapper-link">
+       <p v-for="link in links" :key="link.title">
+           <Links v-bind:link="link" />
+       </p>
+   </div>
   </div>
 </template>
 
 <script>
 import Notes from '../Notes';
 import Links from '../Links';
+import Header from '../Header';
 
 export default {
   props:['splat'],
   data(){
       return{
           title: "My brilliant splat",
+          splatId: this.$route.params.splatId,
           links:[
             {
                 title: "YouTube",
@@ -46,23 +52,24 @@ export default {
         notes:[
             {
                 title:"My chores",
-                content: ["Take out the garbage","Code some Vue", "Make a backend"]
+                content: "Take out the garbage, code some Vue and make a backend."
             },
             {
                 title:"My favorite metallica songs",
-                content: ["Unforgive", "Master of puppets", "Frantic"]
+                content: "Unforgiven, Master of puppets and Frantic."
             },
             {
                 title:"Free time activities",
-                content: ["Gaming","Exercise","Reading"]
+                content: "Gaming, exercise and reading."
             },
         ]
           
       }
     },
   components: {
-    "app-links": Links,
-    "app-notes": Notes,
+    Links,
+    Notes,
+    Header,
   },
   methods:{
       renameSplat(title){
@@ -73,12 +80,34 @@ export default {
 </script>
 
 <style>
-#app{
-    text-align: center;
-}
-.wrapper{
+
+.wrapper-link{
     display: grid;
-    grid-gap:1em;
-    
+    grid-template-columns:repeat(6,1fr);
+    grid-gap:1em;  
+    justify-content: center;
 }
+.wrapper-link > p{
+    background: lightgray;
+    padding: 1em;
+    border: 1px solid #333;
+}
+.wrapper-note{
+    display: grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-gap:1em; 
+    margin: 10px; 
+}
+
+.wrapper-note > p{
+    background: lightgray;
+    padding: 1em;
+    border: 1px solid #333;
+}
+.add{
+    display: grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-gap:1em;  
+}
+
 </style>

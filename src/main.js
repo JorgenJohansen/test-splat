@@ -6,8 +6,8 @@ import Login from './components/views/Login';
 import Dashboard from './components/views/Dashboard';
 import Splat from './components/views/Splat';
 import Home from './components/views/Home';
-import Note from './components/forms/NoteForm';
-import Link from './components/forms/LinkForm';
+import NoteForm from './components/forms/NoteForm';
+import LinkForm from './components/forms/LinkForm';
 
 Vue.config.productionTip = false;
 
@@ -18,9 +18,9 @@ const routes = [
   {path:'/signup', component: Signup},
   {path:'/login', component: Login},
   {path:'/dashboard', component: Dashboard},
-  {path:'/dashboard/:splatId', component: Splat},
-  {path:'/note', component: Note},
-  {path:'/link', component: Link},
+  {path:'/dashboard/splat', component: Splat},
+  {path:'/note', component: NoteForm},
+  {path:'/link', component: LinkForm},
 
   
 ];
