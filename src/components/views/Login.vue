@@ -1,8 +1,8 @@
 <template>
   <div>
+      <Header v-bind:status="[renderHome,renderDashboard,renderLogin,renderSignup,renderLogout,renderUser]" />
       <div class="navbar">
         <h1>Sign in</h1>
-        <router-link to="/" tag="button">Home</router-link>
       </div>
      
 
@@ -12,16 +12,35 @@
          <label>Password: </label>
          <input type="password" v-model="password" />
          <button>Login</button>
-         <router-link to="/" tag="button">Home</router-link>
          
      </form>
   </div>
 </template>
 
 <script>
-
+import Header from '../Header';
 
 export default {
+  props:{
+    renderHome:{
+      type:Boolean
+    },
+    renderDashboard:{
+      type:Boolean
+    },
+    renderLogin:{
+      type:Boolean
+    },
+    renderSignup:{
+      type:Boolean
+    },
+    renderLogout:{
+      type:Boolean
+    },
+    renderUser:{
+      type:Boolean
+    },
+  },
   data(){
       return{
           email:"",
@@ -29,7 +48,7 @@ export default {
       }
     },
   components: {
-    
+    Header,
   }
 }
 </script>

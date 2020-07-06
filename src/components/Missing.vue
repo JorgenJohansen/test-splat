@@ -13,6 +13,11 @@ import Header from './Header';
 export default {
     components:{
         Header,
+    },
+    data(){
+        return{
+            status: this.$route.params,
+        }
     }
 }
 </script>

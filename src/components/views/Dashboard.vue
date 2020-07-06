@@ -1,7 +1,8 @@
 <template>
   <div id="app">
-    <app-header></app-header>
+    <Header v-bind:status="[renderHome,renderDashboard,renderLogin,renderSignup,renderLogout,renderUser]"/>
      <h1>Dashboard</h1>
+
      <div class="wrapper">
        <div class="link" v-for="splat in splats" :key="splat.title">
          <router-link :to="{
@@ -16,6 +17,26 @@
 
 import Header from '../Header';
 export default {
+  props:{
+    renderHome:{
+      type:Boolean
+    },
+    renderDashboard:{
+      type:Boolean
+    },
+    renderLogin:{
+      type:Boolean
+    },
+    renderSignup:{
+      type:Boolean
+    },
+    renderLogout:{
+      type:Boolean
+    },
+    renderUser:{
+      type:Boolean
+    },
+  },
   data(){
       return{
           splats:[
@@ -39,7 +60,7 @@ export default {
       }
     },
   components: {
-    'app-header': Header,
+    Header,
   },
   methods:{
     

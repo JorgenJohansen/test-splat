@@ -2,12 +2,14 @@
   <div>
     <div id="header">
       <h1>Test Splat</h1>
-    <router-link to="/" tag="button">Home</router-link> 
-    <router-link to="/dashboard" tag="button">Dashboard</router-link> 
-    <router-link to="/login" tag="button">Login</router-link> 
-    <router-link to="/signup" tag="button" >Sign Up</router-link> 
-    <router-link v-if="false" to="/" tag="button">Logout</router-link> 
+    <router-link v-if="status[0]" to="/" tag="button">Home</router-link> 
+    <router-link v-if="status[1]" to="/dashboard" tag="button">Dashboard</router-link> 
+    <router-link v-if="status[2]" to="/login" tag="button">Login</router-link> 
+    <router-link v-if="status[3]" to="/signup" tag="button" >Sign Up</router-link> 
+    <router-link v-if="status[4]" to="/" tag="button">Logout</router-link> 
+    <h3 v-if="status[5]">JJ</h3>
     </div>
+    
     
     
     <router-view></router-view>
@@ -18,12 +20,7 @@
 
 
 export default {
-  props:[{
-    renderHome: status.renderHome,
-    renderLogin: status.renderLogin,
-    renderSignup: status.renderSignup,
-    renderLogout: status.renderLogout,
-  }],
+  props:['status'],
 
   data(){
       return{

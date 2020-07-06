@@ -1,6 +1,9 @@
 <template>
-  <div id="app">
-     <h1>Sign up</h1>
+  <div>
+    <Header v-bind:status="[renderHome,renderDashboard,renderLogin,renderSignup,renderLogout,renderUser]" />
+     <div class="navbar">
+        <h1>Sign up</h1>
+      </div>
      <form>
          <label>Name: </label>
          <input required type="text" v-model="name" />
@@ -10,16 +13,36 @@
          <input required type="email" v-model="email" />
          <label>Password: </label>
          <input required type="password" v-model="password" />
-         <button>Register user</button>
+         <button>Register {{name}}</button>
          
      </form>
   </div>
 </template>
 
 <script>
-
+import Header from '../Header';
 
 export default {
+  props:{
+    renderHome:{
+      type:Boolean
+    },
+    renderDashboard:{
+      type:Boolean
+    },
+    renderLogin:{
+      type:Boolean
+    },
+    renderSignup:{
+      type:Boolean
+    },
+    renderLogout:{
+      type:Boolean
+    },
+    renderUser:{
+      type:Boolean
+    },
+  },
   data(){
       return{
           name: "",
@@ -29,7 +52,7 @@ export default {
       }
     },
   components: {
-    
+    Header,
   },
   methods:{
     makeUser: function(){
@@ -64,6 +87,12 @@ label{
 button{
   display: block;
   margin:  10px auto;
+}
+
+.navbar{
+  display: flex;
+  background: grey;
+  justify-content: space-evenly;
 }
 
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header />
+    <Header v-bind:status="[renderHome,renderDashboard,renderLogin,renderSignup,renderLogout,renderUser]"/>
     
    <h2>{{$route.params.id}}</h2>
    <div class="add">
@@ -30,7 +30,26 @@ import Links from '../Links';
 import Header from '../Header';
 
 export default {
-  props:['splat'],
+  props:{
+    renderHome:{
+      type:Boolean
+    },
+    renderDashboard:{
+      type:Boolean
+    },
+    renderLogin:{
+      type:Boolean
+    },
+    renderSignup:{
+      type:Boolean
+    },
+    renderLogout:{
+      type:Boolean
+    },
+    renderUser:{
+      type:Boolean
+    },
+  },
   data(){
       return{
           title: "My brilliant splat",
