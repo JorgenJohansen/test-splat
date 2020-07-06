@@ -15,13 +15,13 @@ Vue.config.productionTip = false;
 Vue.use(VueRouter);
 
 const routes = [
-  {path:'/', component: Home},
-  {path:'/signup', component: Signup},
-  {path:'/login', component: Login},
-  {path:'/dashboard', component: Dashboard},
-  {path:'/dashboard/splat', component: Splat},
-  {path:'/note', component: NoteForm},
-  {path:'/link', component: LinkForm},
+  {path:'/', name: "Home", component: Home},
+  {path:'/signup', name: "Signup", component: Signup},
+  {path:'/login', name: "Login", component: Login},
+  {path:'/dashboard', name: "Dashboard", component: Dashboard},
+  {path:'/dashboard/splat/:id', name: "Splat", component: Splat},
+  {path:'/note', name: "NoteForm", component: NoteForm},
+  {path:'/link', name: "LinkForm", component: LinkForm},
   {path:'*', component: Missing}
 ];
 

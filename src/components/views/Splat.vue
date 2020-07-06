@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <Header />
-   <h2>Splat</h2>
+    
+   <h2>{{$route.params.id}}</h2>
    <div class="add">
        <router-link to="/note" tag="button">Add a new Note</router-link>
    <router-link to="/link" tag="button">Add a new Link</router-link>
@@ -33,7 +34,7 @@ export default {
   data(){
       return{
           title: "My brilliant splat",
-          splatId: this.$route.params.splatId,
+          splatId: this.$route.params.id,
           links:[
             {
                 title: "YouTube",

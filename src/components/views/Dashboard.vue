@@ -4,7 +4,8 @@
      <h1>Dashboard</h1>
      <div class="wrapper">
        <div class="link" v-for="splat in splats" :key="splat.title">
-         <router-link to="/dashboard/splat">{{splat.title}}</router-link>
+         <router-link :to="{
+           name: 'Splat', params:{id: splat.title}}">{{splat.title}}</router-link>
        </div>
      </div>
 
