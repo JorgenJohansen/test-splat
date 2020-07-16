@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header v-bind:status="[renderHome,renderDashboard,renderLogin,renderSignup,renderLogout,renderUser]"/>
-     <h1>Dashboard</h1>
+     <h1>Jørgen sitt place</h1>
 
      <div class="wrapper">
        <div class="link" v-for="splat in splats" :key="splat.title">
@@ -41,19 +41,19 @@ export default {
       return{
           splats:[
               {
-                  title:"Splat 1",
+                  title:"Dashboard 1",
               },
               {
-                  title:"Splat 2",
+                  title:"Dashboard 2",
               },
               {
-                  title:"Splat 3",
+                  title:"Dashboard 3",
               },
               {
-                  title:"Splat 4",
+                  title:"Dashboard 4",
               },
               {
-                  title:"Splat 5",
+                  title:"Dashboard 5",
               },
               
           ]

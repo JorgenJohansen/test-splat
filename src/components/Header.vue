@@ -3,7 +3,6 @@
     <div id="header">
       <h1>Test Splat</h1>
     <router-link v-if="status[0]" to="/" tag="button">Home</router-link> 
-    <router-link v-if="status[1]" to="/dashboard" tag="button">Dashboard</router-link> 
     <router-link v-if="status[2]" to="/login" tag="button">Login</router-link> 
     <router-link v-if="status[3]" to="/signup" tag="button" >Sign Up</router-link> 
     <router-link v-if="status[4]" to="/" tag="button">Logout</router-link> 
