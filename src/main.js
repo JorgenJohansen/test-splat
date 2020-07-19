@@ -3,8 +3,8 @@ import VueRouter from 'vue-router';
 import App from './App.vue';
 import Signup from './components/views/Signup';
 import Login from './components/views/Login';
+import Userpage from './components/views/Userpage';
 import Dashboard from './components/views/Dashboard';
-import Splat from './components/views/Splat';
 import Home from './components/views/Home';
 import NoteForm from './components/forms/NoteForm';
 import LinkForm from './components/forms/LinkForm';
@@ -57,9 +57,9 @@ const routes = [
     }
   },
   {
-    path:'/dashboard', 
-    name: "Dashboard", 
-    component: Dashboard,
+    path:'/userpage', 
+    name: "Userpage", 
+    component: Userpage,
     props:{
       renderHome: true,
       renderDashboard: true,
@@ -70,9 +70,9 @@ const routes = [
     }
   },
   {
-    path:'/dashboard/splat/:id', 
-    name: "Splat", 
-    component: Splat,
+    path:'/userpage/dashboard/:id', 
+    name: "Dashboard", 
+    component: Dashboard,
     props:{
       renderHome: true,
       renderDashboard: true,

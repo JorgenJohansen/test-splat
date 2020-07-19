@@ -1,24 +1,38 @@
 <template>
   <div id="app">
     <Header v-bind:status="[renderHome,renderDashboard,renderLogin,renderSignup,renderLogout,renderUser]"/>
-     <h1>{{title}}</h1>
+    
+   <h2>{{title}}</h2>
+   <div class="add">
+        <router-link :to="{name: 'Note', params:{dashboardTitle: title}}" 
+        tag="button">Add a new Note</router-link>
+        <router-link :to="{name: 'Link', params:{dashboardTitle: title}}"  
+        tag="button">Add a new Link</router-link>
+        <router-link :to="{name: 'EditDashboard', params:{dashboardTitle: title}}"  
+        tag="button">Edit {{title}}</router-link>
+   </div>
+   
+   <h2>Notes: </h2>
+   <div class="wrapper-note">
+       <p v-for="note in notes" :key="note.title">
+           <Notes v-bind:note="note" />
+       </p>
+   </div>
 
-     <router-link :to="{name: 'CreateDashboard', params:{userpageTitle: title}}" 
-      tag="button">Add a new Dashboard</router-link>
-
-     <div class="wrapper">
-       <div class="link" v-for="splat in splats" :key="splat.title">
-         <router-link :to="{
-           name: 'Splat', params:{title: splat.title}}">{{splat.title}}</router-link>
-       </div>
-     </div>
-
+   <h2>Links: </h2>
+   <div class="wrapper-link">
+       <p v-for="link in links" :key="link.title">
+           <Links v-bind:link="link" />
+       </p>
+   </div>
   </div>
 </template>
 
 <script>
-
+import Notes from '../Notes';
+import Links from '../Links';
 import Header from '../Header';
+
 export default {
   props:{
     renderHome:{
@@ -42,49 +56,81 @@ export default {
   },
   data(){
       return{
-          title: "Jørgen sitt place",
-          splats:[
-              {
-                  title:"Dashboard 1",
-              },
-              {
-                  title:"Dashboard 2",
-              },
-              {
-                  title:"Dashboard 3",
-              },
-              {
-                  title:"Dashboard 4",
-              },
-              {
-                  title:"Dashboard 5",
-              },
-              
-          ]
+          title: this.$route.params.title,
+          links:[
+            {
+                title: "YouTube",
+                link: "https://www.youtube.com/",
+            },
+            {
+                title: "Factsplat",
+                link: "https://factsplat.com/",
+            },
+            {
+                title: "Spotify",
+                link: "https://open.spotify.com/",
+            },
+        ],
+
+        notes:[
+            {
+                title:"My chores",
+                content: "Take out the garbage, code some Vue and make a backend."
+            },
+            {
+                title:"My favorite metallica songs",
+                content: "Unforgiven, Master of puppets and Frantic."
+            },
+            {
+                title:"Free time activities",
+                content: "Gaming, exercise and reading."
+            },
+        ]
+          
       }
     },
   components: {
+    Links,
+    Notes,
     Header,
   },
   methods:{
-    
+      renameSplat(title){
+          this.title = title;
+      }
   }
 }
 </script>
 
-<style scoped>
-h1{
-  background: grey;
-  color: white;
+<style>
+
+.wrapper-link{
+    display: grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-gap:1em;  
+    justify-content: center;
+}
+.wrapper-link > p{
+    background: lightgray;
+    padding: 1em;
+    border: 1px solid #333;
+}
+.wrapper-note{
+    display: grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-gap:1em; 
+    margin: 10px; 
 }
 
-.wrapper{
-  display: grid;
-  grid-template-columns:repeat(6,1fr);
+.wrapper-note > p{
+    background: lightgray;
+    padding: 1em;
+    border: 1px solid #333;
 }
-.link{
-  color: red;
-  text-decoration: none;
-  text-transform: uppercase;
+.add{
+    display: grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-gap:1em;  
 }
+
 </style>
