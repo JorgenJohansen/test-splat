@@ -1,13 +1,11 @@
 <template>
   <div id="app">
       <Header v-bind:status="[renderHome,renderDashboard,renderLogin,renderSignup,renderLogout,renderUser]"/>
-     <h3>Add a new link for {{$route.params.dashboardTitle}}</h3>
+     <h3>Add a new Dashboard for {{$route.params.userpageTitle}}</h3>
      <form>
          <label>Title: </label>
-         <input required type="text" v-model="title" />
-         <label>Link: </label>
-         <input required type="text" v-model="link" />
-         <button @click="goHome">Create link</button>
+         <input placeholder="Add a title here" required type="text" v-model="title" />
+         <button @click="goHome">Create dashboard</button>
          <button @click="goHome">Cancel</button>
      </form>
      <Footer />
@@ -20,11 +18,31 @@ import Header from '../Header';
 import Footer from '../Footer';
 
 export default {
+    props:{
+    renderHome:{
+      type:Boolean
+    },
+    renderDashboard:{
+      type:Boolean
+    },
+    renderLogin:{
+      type:Boolean
+    },
+    renderSignup:{
+      type:Boolean
+    },
+    renderLogout:{
+      type:Boolean
+    },
+    renderUser:{
+      type:Boolean
+    },
+  },
+
   data(){
       return{
           title:"",
-          link:"",
-          countryCodes:[],
+          content:"",
       }
     },
   components: {
@@ -32,28 +50,11 @@ export default {
     Footer,
   },
   methods:{
-      createLink(link){
-          if(this.validateLink(link)){
-              return{
-                  title: this.title,
-                  link:this.link,
-              }
-          }else{
-              alert("Link is not valid!")
+      createDashboard() {
+          return{
+              title: this.title,
+              userId: this.$route.params.userId,
           }
-
-      },
-      validateLink(link){
-          let linkList = link.split(".");
-          if(linkList[0] !== "www"){
-             this.countryCodes.forEach(element => {
-              if(element === linkList[2]){
-                  return true;
-              }
-            });
-          }
-          return false;
-          
       },
       goHome() {
           this.$router.push('/dashboard')
@@ -62,7 +63,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 form{
     display: flex;
     flex-direction: column;
@@ -78,6 +79,7 @@ input{
 }
 label{
     margin: 5px;
+    text-decoration: underline;
 }
 
 h3{

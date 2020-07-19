@@ -8,6 +8,8 @@ import Splat from './components/views/Splat';
 import Home from './components/views/Home';
 import NoteForm from './components/forms/NoteForm';
 import LinkForm from './components/forms/LinkForm';
+import CreateDashboardForm from './components/forms/CreateDashboardForm';
+import EditDashboardForm from './components/forms/EditDashboardForm';
 import Missing from './components/Missing';
 
 Vue.config.productionTip = false;
@@ -82,8 +84,21 @@ const routes = [
   },
   {
     path:'/note', 
-    name: "NoteForm", 
+    name: "Note", 
     component: NoteForm,
+    props:{
+      renderHome: true,
+      renderDashboard: true,
+      renderLogin: false,
+      renderSignup: false,
+      renderLogout: false,
+      renderUser: true,
+    }
+  },
+  {
+    path:'/link', 
+    name: "Link", 
+    component: LinkForm,
     props:{
       renderHome: true,
       renderDashboard: true,
@@ -94,9 +109,22 @@ const routes = [
     }
   },
   {
-    path:'/link', 
-    name: "LinkForm", 
-    component: LinkForm,
+    path:'/create', 
+    name: "CreateDashboard", 
+    component: CreateDashboardForm,
+    props:{
+      renderHome: true,
+      renderDashboard: true,
+      renderLogin: false,
+      renderSignup: false,
+      renderLogout: true,
+      renderUser: true,
+    }
+  },
+  {
+    path:'/edit', 
+    name: "EditDashboard", 
+    component: EditDashboardForm,
     props:{
       renderHome: true,
       renderDashboard: true,

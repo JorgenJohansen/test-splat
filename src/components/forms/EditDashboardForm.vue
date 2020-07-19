@@ -1,13 +1,11 @@
 <template>
   <div id="app">
       <Header v-bind:status="[renderHome,renderDashboard,renderLogin,renderSignup,renderLogout,renderUser]"/>
-     <h3>Add a new note for {{$route.params.dashboardTitle}}</h3>
+     <h3>Edit {{$route.params.dashboardTitle}}</h3>
      <form>
-         <label>Title: </label>
-         <input placeholder="Add a title here" required type="text" v-model="title" />
-         <label>Note: </label>
-         <textarea placeholder="What are you thinking about today?" rows="5" cols="5" required type="text" v-model="content" />
-         <button @click="goHome">Create note</button>
+         <label>New title: </label>
+         <input :placeholder="$route.params.dashboardTitle" required type="text" v-model="title" />
+         <button @click="goHome">Save</button>
          <button @click="goHome">Cancel</button>
      </form>
      <Footer />
@@ -52,10 +50,10 @@ export default {
     Footer,
   },
   methods:{
-      createNote() {
+      createDashboard() {
           return{
               title: this.title,
-              content: this.content,
+              userId: this.$route.params.userId,
           }
       },
       goHome() {

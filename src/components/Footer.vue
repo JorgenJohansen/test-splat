@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="footer">Made by Jørgen, humble (front)fullstack dev.</p>
+    <p class="footer">This is a project made for startup Metaito. Uses Vue.js as front-end, and Elixir/Phoenix as backend.</p>
   </div>
 </template>
 
@@ -22,9 +22,11 @@ export default {
 
 <style>
 .footer{
-  background:lightgray;
-  margin: 0px;
-  padding: 5px;
+  background: #000000;
+  color: #FFFFFF;
+  padding: 10px;
+  justify-content: center;
 }
+
 
 </style>

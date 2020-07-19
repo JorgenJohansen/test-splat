@@ -2,10 +2,14 @@
   <div id="app">
     <Header v-bind:status="[renderHome,renderDashboard,renderLogin,renderSignup,renderLogout,renderUser]"/>
     
-   <h2>{{$route.params.id}}</h2>
+   <h2>{{title}}</h2>
    <div class="add">
-       <router-link to="/note" tag="button">Add a new Note</router-link>
-   <router-link to="/link" tag="button">Add a new Link</router-link>
+        <router-link :to="{name: 'Note', params:{dashboardTitle: title}}" 
+        tag="button">Add a new Note</router-link>
+        <router-link :to="{name: 'Link', params:{dashboardTitle: title}}"  
+        tag="button">Add a new Link</router-link>
+        <router-link :to="{name: 'EditDashboard', params:{dashboardTitle: title}}"  
+        tag="button">Edit {{title}}</router-link>
    </div>
    
    <h2>Notes: </h2>
@@ -52,8 +56,7 @@ export default {
   },
   data(){
       return{
-          title: "My brilliant splat",
-          splatId: this.$route.params.id,
+          title: this.$route.params.title,
           links:[
             {
                 title: "YouTube",

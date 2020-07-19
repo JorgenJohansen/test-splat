@@ -41,7 +41,7 @@ h1{
 #header{
   display:flex;
   flex-direction: row;
-  background: grey;
+  background: #DC143C;
 }
 
 </style>

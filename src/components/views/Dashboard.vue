@@ -1,12 +1,15 @@
 <template>
   <div id="app">
     <Header v-bind:status="[renderHome,renderDashboard,renderLogin,renderSignup,renderLogout,renderUser]"/>
-     <h1>Jørgen sitt place</h1>
+     <h1>{{title}}</h1>
+
+     <router-link :to="{name: 'CreateDashboard', params:{userpageTitle: title}}" 
+      tag="button">Add a new Dashboard</router-link>
 
      <div class="wrapper">
        <div class="link" v-for="splat in splats" :key="splat.title">
          <router-link :to="{
-           name: 'Splat', params:{id: splat.title}}">{{splat.title}}</router-link>
+           name: 'Splat', params:{title: splat.title}}">{{splat.title}}</router-link>
        </div>
      </div>
 
@@ -39,6 +42,7 @@ export default {
   },
   data(){
       return{
+          title: "Jørgen sitt place",
           splats:[
               {
                   title:"Dashboard 1",
