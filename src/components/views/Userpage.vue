@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header v-bind:status="[renderHome,renderDashboard,renderLogin,renderSignup,renderLogout,renderUser]"/>
-     <h1>{{title}}</h1>
+     <h1>{{name}}</h1>
 
       <div class="add">
         <router-link :to="{name: 'CreateDashboard', params:{userpageTitle: title}}" 
@@ -16,12 +16,15 @@
        </div>
      </div>
 
+     <Footer />
+
   </div>
 </template>
 
 <script>
 
 import Header from '../Header';
+import Footer from '../Footer';
 export default {
   props:{
     renderHome:{
@@ -45,7 +48,7 @@ export default {
   },
   data(){
       return{
-          title: "Jørgen's place",
+          name: this.$route.params.username,
           splats:[
               {
                   title:"Dashboard 1",
@@ -68,9 +71,13 @@ export default {
     },
   components: {
     Header,
+    Footer,
   },
   methods:{
-    
+    getFirstName(name){
+      let namelist = name.split(" ")
+      return namelist[0];
+    }
   }
 }
 </script>

@@ -2,12 +2,20 @@
   <div id="home">
     <Header v-bind:status="[renderHome,renderDashboard,renderLogin,renderSignup,renderLogout,renderUser]" />
 
-    <h1>Hi and welcome to this test project</h1>
+    <h1>Hi and welcome to this reqruitment project!</h1>
     <div class="content">
       <h3>Info</h3>
-      <p>To use this application you can go to <router-link to="/userpage">this link</router-link> to view notes and links.</p>
-      <p>If you want to create your own links/notes within your own dashboard, 
-        you have to signup or login.</p>
+      <p>To use this application, you can go to the buttons displayed with names under and navigate to different user content.</p>
+      <p>Here you will be able to create dashboards which contain notes and links to different websites.</p>
+
+      <router-link :to="{name: 'Userpage', params:{username: users[0]}}" 
+        tag="button">{{getFirstName(users[0])}}'s place</router-link>
+      <router-link :to="{name: 'Userpage', params:{username: users[1]}}" 
+        tag="button">{{getFirstName(users[1])}}'s place</router-link>
+      <router-link :to="{name: 'Userpage', params:{username: users[2]}}" 
+        tag="button">{{getFirstName(users[2])}}'s place</router-link>
+      
+      
     </div>
     
     
@@ -45,12 +53,18 @@ export default {
 
   data(){
       return{
-          
+          users:["Jørgen Johansen","Cliff","Geralt of Rivia"]
       }
     },
   components: {
     Header,
     Footer,
+  }, 
+  methods:{
+    getFirstName(name){
+      let namelist = name.split(" ")
+      return namelist[0];
+    }
   }
 }
 </script>

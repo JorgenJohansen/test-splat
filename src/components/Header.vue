@@ -2,11 +2,13 @@
   <div>
     <div id="header">
       <h1>Test Splat</h1>
-    <router-link v-if="status[0]" to="/" tag="button">Home</router-link> 
-    <router-link v-if="status[2]" to="/login" tag="button">Login</router-link> 
-    <router-link v-if="status[3]" to="/signup" tag="button" >Sign Up</router-link> 
-    <router-link v-if="status[4]" to="/" tag="button">Logout</router-link> 
-    <h3 class="icon" v-if="status[5]">JJ</h3>
+      <div class="right">
+        <router-link v-if="status[0]" to="/" tag="button">Home</router-link> 
+        <!--<router-link v-if="status[2]" to="/login" tag="button">Login</router-link> 
+        <router-link v-if="status[3]" to="/signup" tag="button" >Sign Up</router-link>
+        <router-link v-if="status[4]" to="/" tag="button">Logout</router-link>-->
+        <h3 class="icon" v-if="status[5]">{{mainletters}}</h3>
+      </div>
     </div>
     
     
@@ -19,15 +21,31 @@
 
 
 export default {
-  props:['status'],
+  props:{
+    status: Array,
+    name: String,
+  },
 
   data(){
       return{
-          
+          mainletters:"JJ"
       }
     },
   components: {
     
+  },
+  methods:{
+    makeNameIcon(name){
+      let namelist = name.split(" ");
+      
+      let firstLetter = namelist[0].slice(1).uppercase();
+      //If there is only 1 name, we return it.
+      if(namelist.length == 1){
+        return firstLetter;
+      }
+      let secondLetter = namelist.pop().slice(1).uppercase();
+      return firstLetter + secondLetter;
+    }
   }
 }
 </script>
@@ -46,6 +64,11 @@ h1{
 
 .icon{
   border-radius: 30px;
+}
+
+.right{
+  display: flex; 
+  justify-content: flex-end;
 }
 
 </style>
