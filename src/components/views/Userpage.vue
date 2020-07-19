@@ -3,13 +3,16 @@
     <Header v-bind:status="[renderHome,renderDashboard,renderLogin,renderSignup,renderLogout,renderUser]"/>
      <h1>{{title}}</h1>
 
-     <router-link :to="{name: 'CreateDashboard', params:{userpageTitle: title}}" 
-      tag="button">Add a new Dashboard</router-link>
+      <div class="add">
+        <router-link :to="{name: 'CreateDashboard', params:{userpageTitle: title}}" 
+        tag="button">Add a new Dashboard</router-link>
+      </div>
+     
 
      <div class="wrapper">
        <div class="link" v-for="splat in splats" :key="splat.title">
          <router-link :to="{
-           name: 'Dashboard', params:{title: splat.title}}">{{splat.title}}</router-link>
+           name: 'Dashboard', params:{title: splat.title}}" tag="button">{{splat.title}}</router-link>
        </div>
      </div>
 
@@ -42,7 +45,7 @@ export default {
   },
   data(){
       return{
-          title: "Jørgen sitt place",
+          title: "Jørgen's place",
           splats:[
               {
                   title:"Dashboard 1",
@@ -76,15 +79,28 @@ export default {
 h1{
   background: grey;
   color: white;
+
 }
 
 .wrapper{
   display: grid;
-  grid-template-columns:repeat(6,1fr);
+  grid-template-columns:repeat(3,1fr);
+}
+
+.add{
+  padding:20px;
+  margin: 10px;
 }
 .link{
   color: red;
   text-decoration: none;
   text-transform: uppercase;
+}
+
+button{
+  color: white;
+  background: grey;
+  margin: 5px;
+  padding: 5px;
 }
 </style>

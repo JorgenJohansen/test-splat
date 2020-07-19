@@ -6,7 +6,7 @@
     <router-link v-if="status[2]" to="/login" tag="button">Login</router-link> 
     <router-link v-if="status[3]" to="/signup" tag="button" >Sign Up</router-link> 
     <router-link v-if="status[4]" to="/" tag="button">Logout</router-link> 
-    <h3 v-if="status[5]">JJ</h3>
+    <h3 class="icon" v-if="status[5]">JJ</h3>
     </div>
     
     
@@ -42,6 +42,10 @@ h1{
   display:flex;
   flex-direction: row;
   background: #DC143C;
+}
+
+.icon{
+  border-radius: 30px;
 }
 
 </style>
