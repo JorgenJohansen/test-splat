@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 
 import Header from '../Header';
 import Footer from '../Footer';
@@ -64,7 +65,16 @@ export default {
     getFirstName(name){
       let namelist = name.split(" ")
       return namelist[0];
+    },
+
+    getUsers(){
+      axios.get("http://localhost:4000/api/users")
+      .then(res => console.log(res));
     }
+  },
+  created: function(){
+    axios.get("http://localhost:4000/api/users")
+    .then(res => console.log(res));
   }
 }
 </script>
