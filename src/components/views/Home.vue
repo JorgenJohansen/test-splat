@@ -74,13 +74,11 @@ export default {
     }
   },
   created: function(){
-    //let data = [];
     axios.get("http://localhost:4000/api/users")
     .then(res => {
       for(let i = 0; i < res.data.data.length; i++){
         this.userList.push(res.data.data[i]);
       }
-      //console.log(res.data.data[0])
     });
     
   }
