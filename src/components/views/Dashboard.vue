@@ -13,15 +13,25 @@
    </div>
    
    <h2>Notes: </h2>
-   <div class="wrapper-note">
-       <p v-for="note in notes" :key="note.title">
+   <div v-if="notes.length === 0" class="wrapper-note">
+       <p v-for="note in dummyNotes" :key="note.title">
+           <Notes v-bind:note="note" />
+       </p>
+   </div>
+   <div v-else class="wrapper-note">
+       <p v-for="note in dummyNotes" :key="note.title">
            <Notes v-bind:note="note" />
        </p>
    </div>
 
    <h2>Links: </h2>
-   <div class="wrapper-link">
-       <p v-for="link in links" :key="link.title">
+   <div v-if="links.length === 0" class="wrapper-link">
+       <p v-for="link in dummyLinks" :key="link.title">
+           <Links v-bind:link="link" />
+       </p>
+   </div>
+   <div v-else class="wrapper-link">
+       <p v-for="link in dummyLinks" :key="link.title">
            <Links v-bind:link="link" />
        </p>
    </div>
@@ -57,7 +67,8 @@ export default {
   data(){
       return{
           title: this.$route.params.title,
-          links:[
+          links: [],
+          dummyLinks:[
             {
                 title: "YouTube",
                 link: "https://www.youtube.com/",
@@ -71,8 +82,8 @@ export default {
                 link: "https://open.spotify.com/",
             },
         ],
-
-        notes:[
+        notes: [],
+        dummyNotes:[
             {
                 title:"My chores",
                 content: "Take out the garbage, code some Vue and make a backend."
