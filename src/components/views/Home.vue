@@ -8,12 +8,12 @@
       <p>To use this application, you can go to the buttons displayed with names under and navigate to different user content.</p>
       <p>Here you will be able to create dashboards which contain notes and links to different websites.</p>
 
-      <router-link :to="{name: 'Userpage', params:{username: users[0]}}" 
-        tag="button">{{getFirstName(users[0])}}'s place</router-link>
-      <router-link :to="{name: 'Userpage', params:{username: users[1]}}" 
-        tag="button">{{getFirstName(users[1])}}'s place</router-link>
-      <router-link :to="{name: 'Userpage', params:{username: users[2]}}" 
-        tag="button">{{getFirstName(users[2])}}'s place</router-link>
+      <router-link :to="{name: 'Userpage', params:{username: userList[0].name, userId: userList[0].id}}" 
+        tag="button">{{getFirstName(userList[0].name)}}'s place</router-link>
+      <router-link :to="{name: 'Userpage', params:{username: userList[1].name, userId: userList[1].id}}" 
+        tag="button">{{getFirstName(userList[1].name)}}'s place</router-link>
+      <router-link :to="{name: 'Userpage', params:{username: userList[2].name, userId: userList[2].id}}" 
+        tag="button">{{getFirstName(userList[2].name)}}'s place</router-link>
       
       
     </div>
@@ -54,7 +54,8 @@ export default {
 
   data(){
       return{
-          users:["Jørgen Johansen","Cliff","Geralt of Rivia"]
+          users:["Jørgen Johansen","Cliff Steele","Geralt of Rivia"],
+          userList: [],
       }
     },
   components: {
@@ -73,8 +74,15 @@ export default {
     }
   },
   created: function(){
+    //let data = [];
     axios.get("http://localhost:4000/api/users")
-    .then(res => console.log(res));
+    .then(res => {
+      for(let i = 0; i < res.data.data.length; i++){
+        this.userList.push(res.data.data[i]);
+      }
+      //console.log(res.data.data[0])
+    });
+    
   }
 }
 </script>
