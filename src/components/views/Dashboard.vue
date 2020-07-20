@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 import Notes from '../Notes';
 import Links from '../Links';
 import Header from '../Header';
@@ -109,6 +111,44 @@ export default {
       renameSplat(title){
           this.title = title;
       }
+  },
+  created: function(){
+    let data = [];
+    //console.log(this.$route.params.userId)
+    //console.log(this.$route.params.dashboardId)
+    axios.get("http://localhost:4000/api/notes")
+      .then(res => {
+        for(let i = 0; i < res.data.data.length; i++){
+          data.push(res.data.data[i]);
+          //console.log(res.data.data[i].id)
+        }
+        
+        data.forEach(note => {
+          //console.log("note.id: " + note.id);
+          //console.log("note.user_id: " + note.user_id);
+          //console.log("this.$route.params.userId: " + this.$route.params.userId);
+          //console.log("this.$route.params.dashboardId: " + this.$route.params.dashboardId);
+          //console.log(note.dashboard_id === this.$route.params.dashboardId);
+          if(note.id === this.$route.params.userId && note.id === this.$route.params.dashboardId){
+            this.notes.push(note);
+          }
+        });
+      });
+    console.log(this.notes.length);
+
+    /*
+    axios.get("http://localhost:4000/api/links")
+      .then(res => {
+        for(let i = 0; i < res.data.data.length; i++){
+          data.push(res.data.data[i]);
+        }
+        data.forEach(link => {
+          if(link.id === this.$route.params.userId && link.id === this.$route.params.dashboardId){
+            console.log("Link: " + link);
+          }
+        });
+      });
+      */
   }
 }
 </script>

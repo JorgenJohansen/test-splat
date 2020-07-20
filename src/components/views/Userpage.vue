@@ -18,7 +18,7 @@
      <div v-else class="wrapper">
        <div  class="link" v-for="dashboard in dashboardList" :key="dashboard.title">
          <router-link :to="{
-           name: 'Dashboard', params:{title: dashboard.title, dashboardId: dashboard.id, userId: dashboard.userId}}" tag="button">{{dashboard.title}}</router-link>
+           name: 'Dashboard', params:{title: dashboard.title, dashboardId: dashboard.id, userId: dashboard.user_id}}" tag="button">{{dashboard.title}}</router-link>
        </div>
      </div>
 
@@ -99,7 +99,7 @@ export default {
   },
   created: function(){
     let data = [];
-    console.log(this.$route.params.userId)
+    //console.log(this.$route.params.userId)
     axios.get("http://localhost:4000/api/dashboards")
     .then(res => {
       for(let i = 0; i < res.data.data.length; i++){
@@ -111,7 +111,6 @@ export default {
         }
       });
     });
-    
   }
 }
 </script>

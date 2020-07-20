@@ -80,7 +80,6 @@ export default {
         this.userList.push(res.data.data[i]);
       }
     });
-    
   }
 }
 </script>
