@@ -10,7 +10,7 @@ import NoteForm from './components/forms/NoteForm';
 import LinkForm from './components/forms/LinkForm';
 import CreateDashboardForm from './components/forms/CreateDashboardForm';
 import EditDashboardForm from './components/forms/EditDashboardForm';
-import Missing from './components/Missing';
+import Missing from './components/views/Missing';
 
 Vue.config.productionTip = false;
 

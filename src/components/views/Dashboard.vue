@@ -45,8 +45,8 @@
 <script>
 import axios from 'axios';
 
-import Notes from '../Notes';
-import Links from '../Links';
+import Notes from '../dashboard/Notes';
+import Links from '../dashboard/Links';
 import Header from '../Header';
 import Footer from '../Footer';
 
