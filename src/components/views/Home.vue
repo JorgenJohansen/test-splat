@@ -94,11 +94,6 @@ h3{
   text-decoration: underline;
 }
 
-.nested{
-  display: grid;
-  grid-template-columns: repeat(6,1fr);
-}
-
 button{
   color: white;
   background: grey;

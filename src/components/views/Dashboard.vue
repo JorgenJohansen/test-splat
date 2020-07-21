@@ -144,41 +144,46 @@ export default {
 </script>
 
 <style>
-
+/*
 .wrapper-link{
     display: grid;
     grid-template-columns:repeat(6,1fr);
     grid-gap:1em;  
     justify-content: center;
-}
+}*/
 .wrapper-link > p{
     background: lightgray;
     padding: 1em;
     margin: 1em;
     border: 1px solid #333;
 }
+/*
 .wrapper-note{
     display: grid;
     grid-template-columns:repeat(4,1fr);
     grid-gap:1em; 
     margin: 10px; 
-}
+}*/
 
 .wrapper-note > p{
     background: lightgray;
     padding: 1em;
+    margin: 1em;
     border: 1px solid #333;
+    max-width: 300px;
 }
+/*
 .add{
     display: grid;
     grid-template-columns:repeat(6,1fr);
     grid-gap:1em;  
-}
+}*/
 button{
   color: white;
   background: grey;
-  margin: 5px;
-  padding: 5px;
+  margin: 1em;
+  padding: 1em;
+  max-width: 200px;
 }
 
 .content{
@@ -189,6 +194,63 @@ h2{
   color: white;
   padding: 1em;
   margin: 1em;
+}
+
+@media all and (max-width: 560px){
+.wrapper-link{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+}
+.wrapper-note{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+}
+.add{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+}
+}
+@media all and (min-width: 561px) and (max-width: 1020px){
+.wrapper-link{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.wrapper-note{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.add{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+}
+@media all and (min-width: 1021px) and (max-width: 2000px){
+.wrapper-link{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+}
+.wrapper-note{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+}
+}
+.add{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+@media all and (min-width: 2001px) and (max-width: 3324px){
+.wrapper-link{
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+}
+.wrapper-note{
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+}
+}
+.add{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
 }
 
 </style>
