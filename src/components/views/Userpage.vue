@@ -124,10 +124,12 @@ h1{
 
 }
 
+/*
 .wrapper{
   display: grid;
   grid-template-columns:repeat(3,1fr);
 }
+*/
 
 .add{
   padding: 20px;
@@ -142,11 +144,53 @@ h1{
 button{
   color: white;
   background: grey;
-  margin: 5px;
-  padding: 5px;
+  margin: 1em;
+  padding: 1em;
+  max-width: 200px;
 }
 
 .content{
   background: grey;
+}
+
+@media all and (max-width: 560px){
+.link{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+}
+.add{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+}
+}
+@media all and (min-width: 561px) and (max-width: 1020px){
+.link{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+.add{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+}
+@media all and (min-width: 1021px) and (max-width: 2000px){
+.link{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+}
+}
+.add{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+}
+@media all and (min-width: 2001px) and (max-width: 3324px){
+.link{
+  display: grid;
+  grid-template-columns: repeat(12,1fr);
+}
+}
+.add{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
 }
 </style>
