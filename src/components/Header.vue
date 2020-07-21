@@ -1,7 +1,6 @@
 <template>
   <div>
     <div id="header">
-      <h1>Test Splat</h1>
       <div class="right">
         <router-link v-if="status[0]" to="/" tag="button">Home</router-link> 
         <!--<router-link v-if="status[2]" to="/login" tag="button">Login</router-link> 

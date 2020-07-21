@@ -20,6 +20,15 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+button{
+  background: blue;
+  color: white;
+}
+
+a{
+  text-decoration: none;
+}
 
 </style>
