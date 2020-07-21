@@ -19,7 +19,7 @@
        </p>
    </div>
    <div v-else class="wrapper-note">
-       <p v-for="note in dummyNotes" :key="note.title">
+       <p v-for="note in notes" :key="note.title">
            <Notes v-bind:note="note" />
        </p>
    </div>
@@ -31,7 +31,7 @@
        </p>
    </div>
    <div v-else class="wrapper-link">
-       <p v-for="link in dummyLinks" :key="link.title">
+       <p v-for="link in links" :key="link.title">
            <Links v-bind:link="link" />
        </p>
    </div>
@@ -113,42 +113,28 @@ export default {
       }
   },
   created: function(){
-    let data = [];
-    //console.log(this.$route.params.userId)
-    //console.log(this.$route.params.dashboardId)
-    axios.get("http://localhost:4000/api/notes")
+    
+    /*const params = {
+      user_id: this.$route.params.userId,
+      dashboard_id: this.$route.params.dashboardId,
+    }*/
+    axios.get("http://localhost:4000/api/dashboards/"+ this.$route.params.userId +"/notes/" + this.$route.params.userId)
       .then(res => {
+        /*
         for(let i = 0; i < res.data.data.length; i++){
-          data.push(res.data.data[i]);
-          //console.log(res.data.data[i].id)
-        }
-        
-        data.forEach(note => {
-          //console.log("note.id: " + note.id);
-          //console.log("note.user_id: " + note.user_id);
-          //console.log("this.$route.params.userId: " + this.$route.params.userId);
-          //console.log("this.$route.params.dashboardId: " + this.$route.params.dashboardId);
-          //console.log(note.dashboard_id === this.$route.params.dashboardId);
-          if(note.id === this.$route.params.userId && note.id === this.$route.params.dashboardId){
-            this.notes.push(note);
-          }
-        });
-      });
-    console.log(this.notes.length);
+          //data.push(res.data.data[i]);
+          console.log(res.data.data[i])
+        }*/
+        this.notes.push(res.data.data);
+      })
+      .catch(error => console.log(error));
 
-    /*
-    axios.get("http://localhost:4000/api/links")
+    
+    axios.get("http://localhost:4000/api/dashboards/"+ this.$route.params.userId +"/links/" + this.$route.params.userId)
       .then(res => {
-        for(let i = 0; i < res.data.data.length; i++){
-          data.push(res.data.data[i]);
-        }
-        data.forEach(link => {
-          if(link.id === this.$route.params.userId && link.id === this.$route.params.dashboardId){
-            console.log("Link: " + link);
-          }
-        });
+        this.links.push(res.data.data);
       });
-      */
+      
   }
 }
 </script>
