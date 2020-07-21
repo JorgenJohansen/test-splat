@@ -5,7 +5,7 @@
      <form>
          <label>Title: </label>
          <input placeholder="Add a title here" required type="text" v-model="title" />
-         <button @click="goHome">Create dashboard</button>
+         <button @click="createDashboard">Create dashboard</button>
          <button @click="goHome">Cancel</button>
      </form>
      <Footer />
@@ -57,7 +57,7 @@ export default {
           }
       },
       goHome() {
-          this.$router.push('/userpage')
+          this.$router.push('/');
       }
   }
 }

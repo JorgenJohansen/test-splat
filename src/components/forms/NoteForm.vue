@@ -59,7 +59,7 @@ export default {
           }
       },
       goHome() {
-          this.$router.push('/userpage')
+          this.$router.push('/')
       }
   }
 }
