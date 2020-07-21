@@ -16,7 +16,6 @@ export default {
     },
     data(){
         return{
-            status: this.$route.params,
         }
     }
 }

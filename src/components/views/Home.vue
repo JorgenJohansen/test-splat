@@ -14,11 +14,7 @@
         tag="button">{{getFirstName(userList[1].name)}}'s place</router-link>
       <router-link :to="{name: 'Userpage', params:{username: userList[2].name, userId: userList[2].id}}" 
         tag="button">{{getFirstName(userList[2].name)}}'s place</router-link>
-      
-      
     </div>
-    
-    
     <Footer />
     <router-view></router-view>
   </div>
@@ -67,11 +63,6 @@ export default {
       let namelist = name.split(" ")
       return namelist[0];
     },
-
-    getUsers(){
-      axios.get("http://localhost:4000/api/users")
-      .then(res => console.log(res));
-    }
   },
   created: function(){
     axios.get("http://localhost:4000/api/users")
