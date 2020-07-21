@@ -102,8 +102,9 @@ h3{
 button{
   color: white;
   background: grey;
-  margin: 5px;
-  padding: 5px;
+  margin: 1em;
+  padding: 1em;
+  max-width: 200px;
 }
 
 p{
@@ -111,8 +112,23 @@ p{
   word-wrap: break-word;  
 }
 
-@media all and (max-width: 500px){
-
+@media all and (max-width: 560px){
+.nested{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+}
+}
+@media all and (min-width: 561px) and (max-width: 1020px){
+.nested{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+}
+@media all and (min-width: 1021px) and (max-width: 2000px){
+.nested{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+}
 }
 
 
