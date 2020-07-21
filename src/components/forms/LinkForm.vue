@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -34,10 +36,15 @@ export default {
   methods:{
       createLink(link){
           if(this.validateLink(link)){
-              return{
-                  title: this.title,
-                  link:this.link,
-              }
+              axios.post("http://localhost:4000/api/dashboards/" + this.$route.params.userId + "/links/", {
+                title: this.title,
+                link: this.link,
+                user_id: this.$route.params.userId,
+                dashboard_id: this.$route.params.dashboardId,
+        })
+        .then(res => console.log(res.title, res.content))
+        .catch(err => console.error(err));
+         this.goHome();
           }else{
               alert("Link is not valid!")
           }

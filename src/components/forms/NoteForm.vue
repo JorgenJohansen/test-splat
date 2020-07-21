@@ -16,8 +16,11 @@
 </template>
 
 <script>
+import axios from 'axios'; 
+
 import Header from '../Header';
 import Footer from '../Footer';
+
 
 export default {
     props:{
@@ -53,10 +56,15 @@ export default {
   },
   methods:{
       createNote() {
-          return{
-              title: this.title,
-              content: this.content,
-          }
+          axios.post("http://localhost:4000/api/dashboards/" + this.$route.params.userId + "/notes/", {
+            title: this.title,
+            content: this.content,
+            user_id: this.$route.params.userId,
+            dashboard_id: this.$route.params.dashboardId,
+        })
+        .then(res => console.log(res.title, res.content))
+        .catch(err => console.error(err));
+         this.goHome();
       },
       goHome() {
           this.$router.push('/')

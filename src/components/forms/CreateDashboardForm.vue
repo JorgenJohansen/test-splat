@@ -5,7 +5,7 @@
      <form>
          <label>Title: </label>
          <input placeholder="Add a title here" required type="text" v-model="title" />
-         <button @click="createDashboard">Create dashboard</button>
+         <button @click="createDashboard">Create dashboard {{title}}</button>
          <button @click="goHome">Cancel</button>
      </form>
      <Footer />
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -42,7 +44,6 @@ export default {
   data(){
       return{
           title:"",
-          content:"",
       }
     },
   components: {
@@ -51,14 +52,20 @@ export default {
   },
   methods:{
       createDashboard() {
-          return{
+          axios.post("http://localhost:4000/api/dashboards/",{
               title: this.title,
               userId: this.$route.params.userId,
-          }
+          })
+          .then(res => console.log("Title: " + res.title + ", UserId: " + res.userId))
+          .catch(err => console.error(err));
+          this.goHome();
       },
       goHome() {
           this.$router.push('/');
       }
+  },
+  created(){
+    console.log(this.title);
   }
 }
 </script>

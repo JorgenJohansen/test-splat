@@ -5,7 +5,7 @@
      <form>
          <label>New title: </label>
          <input :placeholder="$route.params.dashboardTitle" required type="text" v-model="title" />
-         <button @click="goHome">Save</button>
+         <button @click="editDashboard">Save</button>
          <button @click="goHome">Cancel</button>
      </form>
      <Footer />
@@ -14,6 +14,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 import Header from '../Header';
 import Footer from '../Footer';
 
@@ -50,11 +52,13 @@ export default {
     Footer,
   },
   methods:{
-      createDashboard() {
-          return{
-              title: this.title,
-              userId: this.$route.params.userId,
-          }
+      editDashboard() {
+        axios.patch("http://localhost:4000/api/dashboards/" + this.$route.params.userId, {
+          title: this.title
+        })
+        .then(res => console.log(res.title))
+        .catch(err => console.error(err));
+         this.goHome();
       },
       goHome() {
           this.$router.push('/')
